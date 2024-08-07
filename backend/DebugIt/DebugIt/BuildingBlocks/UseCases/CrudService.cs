@@ -18,6 +18,12 @@ public abstract class CrudService<TDto, TDomain> : BaseService<TDto, TDomain> wh
         CrudRepository = crudRepository;
     }
 
+    public Result<List<TDto>> GetAll()
+    {
+        var result = CrudRepository.GetAll();
+        return MapToDto(result);
+    }
+
     public Result<TDto> Get(int id)
     {
         try

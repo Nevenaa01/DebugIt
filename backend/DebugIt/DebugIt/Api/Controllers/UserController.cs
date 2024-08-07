@@ -14,6 +14,13 @@ public class UserController : BaseApiController
         _userService = userService;
     }
 
+    [HttpGet]
+    public ActionResult<List<UserDto>> GetAll()
+    {
+        var result = _userService.GetAll();
+        return CreateResponse(result);
+    }
+
     [HttpGet("{id:int}")]
     public ActionResult<UserDto> Get(int id)
     {

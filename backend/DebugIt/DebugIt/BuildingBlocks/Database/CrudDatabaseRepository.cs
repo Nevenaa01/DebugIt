@@ -17,6 +17,11 @@ public class CrudDatabaseRepository<TEntity, TDbContext> : ICrudRepository<TEnti
         _dbSet = DbContext.Set<TEntity>();
     }
 
+    public List<TEntity> GetAll()
+    {
+        return _dbSet.ToList();
+    }
+
     public TEntity Get(int id)
     {
         var entity = _dbSet.Find(id);

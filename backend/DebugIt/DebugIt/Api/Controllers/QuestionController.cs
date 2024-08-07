@@ -15,6 +15,13 @@ public class QuestionController : BaseApiController
         _questionService = questionService;
     }
 
+    [HttpGet]
+    public ActionResult<List<QuestionDto>> GetAll()
+    {
+        var result = _questionService.GetAll();
+        return CreateResponse(result);
+    }
+
     [HttpGet("{id:int}")]
     public ActionResult<QuestionDto> Get(int id)
     {

@@ -25,6 +25,7 @@ public static class ModuleConfiguration
     {
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IQuestionService, QuestionService>();
+        services.AddScoped<ICommentService, CommentService>();
     }
 
     private static void SetupInfrastructure(IServiceCollection services)
@@ -33,5 +34,7 @@ public static class ModuleConfiguration
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped(typeof(ICrudRepository<Question>), typeof(CrudDatabaseRepository<Question, DebugItContext>));
         services.AddScoped<IQuestionRepository, QuestionRepository>();
+        services.AddScoped(typeof(ICrudRepository<Comment>), typeof(CrudDatabaseRepository<Comment, DebugItContext>));
+        services.AddScoped<ICommentRepository, CommentRepository>();
     }
 }

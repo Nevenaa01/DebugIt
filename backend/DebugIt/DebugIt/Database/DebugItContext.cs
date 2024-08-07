@@ -7,6 +7,7 @@ public class DebugItContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Question> Questions { get; set; }
+    public DbSet<Comment> Comments { get; set; }
     public DebugItContext(DbContextOptions<DebugItContext> options) : base(options) { }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -16,6 +17,10 @@ public class DebugItContext : DbContext
 
         modelBuilder.Entity<Question>()
             .Property(q => q.Id)
+            .ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<Comment>()
+            .Property(c => c.Id)
             .ValueGeneratedOnAdd();
 
         modelBuilder.Entity<User>().HasIndex(u => u.Email).IsUnique();
@@ -29,5 +34,15 @@ public class DebugItContext : DbContext
             .HasOne<User>()
             .WithMany()
             .HasForeignKey(q => q.UserId);
+
+        modelBuilder.Entity<Comment>()
+            .HasOne<Question>()
+            .WithMany()
+            .HasForeignKey(c => c.QuestionId);
+
+        modelBuilder.Entity<Comment>()
+            .HasOne<Comment>()
+            .WithMany()
+            .HasForeignKey(c => c.CommentThreadId);
     }
 }
