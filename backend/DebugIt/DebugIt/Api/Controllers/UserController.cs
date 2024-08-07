@@ -36,7 +36,7 @@ public class UserController : BaseApiController
     }
 
     [HttpDelete("{id:int}")]
-    public ActionResult<UserDto> Delete(int id)
+    public ActionResult Delete(int id)
     {
         var result = _userService.Delete(id);
         return CreateResponse(result);

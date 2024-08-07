@@ -9,7 +9,7 @@ namespace DebugIt.Services;
 
 public class UserService : CrudService<UserDto, User>, IUserService
 {
-    public IUserRepository _userRepository;
+    private IUserRepository _userRepository;
 
     public UserService(ICrudRepository<User> repository, IMapper mapper, IUserRepository userRepository) : base(repository, mapper)
     {

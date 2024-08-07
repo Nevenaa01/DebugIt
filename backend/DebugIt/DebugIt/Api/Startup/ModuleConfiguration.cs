@@ -24,11 +24,14 @@ public static class ModuleConfiguration
     private static void SetupCore(IServiceCollection services)
     {
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IQuestionService, QuestionService>();
     }
 
     private static void SetupInfrastructure(IServiceCollection services)
     {
         services.AddScoped(typeof(ICrudRepository<User>), typeof(CrudDatabaseRepository<User, DebugItContext>));
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped(typeof(ICrudRepository<Question>), typeof(CrudDatabaseRepository<Question, DebugItContext>));
+        services.AddScoped<IQuestionRepository, QuestionRepository>();
     }
 }

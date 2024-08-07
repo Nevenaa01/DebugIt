@@ -9,5 +9,6 @@ public class DebugItProfile : Profile
     public DebugItProfile()
     {
         CreateMap<UserDto, User>().ReverseMap();
+        CreateMap<QuestionDto, Question>().ReverseMap();
     }
 }

@@ -34,7 +34,8 @@ public class UserRepository : IUserRepository
 
     public void Delete(int id)
     {
-        _dbContext.Remove(id);
+        var user = Get(id);
+        _dbContext.Users.Remove(user!);
         _dbContext.SaveChanges();
     }
 }
