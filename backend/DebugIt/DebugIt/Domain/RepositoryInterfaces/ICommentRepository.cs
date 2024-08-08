@@ -2,8 +2,6 @@
 
 public interface ICommentRepository
 {
-    Comment? Get(int id);
-    Comment Create(Comment comment);
-    Comment Update(Comment comment);
-    void Delete(int id);
+    List<Comment> GetByQuestionId(int questionId);
+    List<Comment> GetByThreadId(int threadId);
 }

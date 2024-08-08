@@ -28,6 +28,20 @@ public class CommentController : BaseApiController
         return CreateResponse(result);
     }
 
+    [HttpGet("ofQuestion/{id:int}")]
+    public ActionResult<List<CommentDto>> GetByQuestionId(int id)
+    {
+        var result = _commentService.GetByQuestionId(id);
+        return CreateResponse(result);
+    }
+
+    [HttpGet("ofThread/{id:int}")]
+    public ActionResult<List<CommentDto>> GetByThreadId(int id)
+    {
+        var result = _commentService.GetByThreadId(id);
+        return CreateResponse(result);
+    }
+
     [HttpPost]
     public ActionResult<CommentDto> Create([FromBody] CommentDto commentDto)
     {

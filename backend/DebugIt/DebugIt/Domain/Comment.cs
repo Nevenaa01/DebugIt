@@ -8,17 +8,19 @@ public class Comment : Entity
     public string Description { get; set; }
     public int UserId { get; set; }
     public long PostedOn { get; set; }
+    public long? EditedOn { get; set; }
     public int NumOfVotes { get; set; }
     public int? CommentThreadId { get; set; }
 
     public Comment() { }
-    public Comment(int id, int questionId, string description, int userId, long postedOn, int numOfVotes, int? commentThreadId)
+    public Comment(int id, int questionId, string description, int userId, long postedOn, long? editedOn, int numOfVotes, int? commentThreadId)
     {
         Id = id;
         QuestionId = questionId;
         Description = description;
         UserId = userId;
         PostedOn = postedOn;
+        EditedOn = editedOn;
         NumOfVotes = numOfVotes;
         CommentThreadId = commentThreadId;
 
