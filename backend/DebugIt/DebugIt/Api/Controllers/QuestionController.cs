@@ -9,15 +9,18 @@ namespace DebugIt.Api.Controllers;
 public class QuestionController : BaseApiController
 {
     private readonly IQuestionService _questionService;
+    private readonly ILogger<QuestionController> _logger;
 
-    public QuestionController(IQuestionService questionService)
+    public QuestionController(IQuestionService questionService, ILogger<QuestionController> logger)
     {
         _questionService = questionService;
+        _logger = logger;
     }
 
     [HttpGet]
     public ActionResult<List<QuestionDto>> GetAll()
     {
+        _logger.LogInformation("Hello from action");
         var result = _questionService.GetAll();
         return CreateResponse(result);
     }
