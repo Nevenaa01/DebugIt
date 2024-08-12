@@ -1,0 +1,40 @@
+﻿version: '3.1'
+
+services:
+  elasticsearch:
+    container_name: els
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0
+    ports:
+        - 9200:9200
+    #containers and images are stateless, so data will be deleted once they're not running
+    #volumes help with storing consistent data
+    volumes:   
+        - elasticsearch-data:/user/share/elasticsearch/data
+    environment:
+        #disabling Elasticsearch security features like authentication, SSL/TLS, RBAC etc)
+        - xpack.security.enabled=false
+        #one node in a cluster
+        - discovery.type=single-node
+    networks:
+        - elastic
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:8.15.0
+    ports:
+        - 5601:5601
+    #specifying that elasticsearch is fully running before running kibana and neccessary configuration
+    depends_on:
+        - elasticsearch
+    environment:
+        - ELASTICSEARCH_URL=http://localhost:9200
+    networks:
+        - elastic
+
+networks:
+    elastic:
+        driver: bridge
+
+volumes:
+    elasticsearch-data:
+        
