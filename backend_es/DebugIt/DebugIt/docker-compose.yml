@@ -10,6 +10,7 @@ services:
     #volumes help with storing consistent data
     volumes:   
         - elasticsearch-data:/user/share/elasticsearch/data
+        - ./config/serbianStopwords.txt:/usr/share/elasticsearch/config/serbianStopwords.txt
     environment:
         #disabling Elasticsearch security features like authentication, SSL/TLS, RBAC etc)
         - xpack.security.enabled=false
