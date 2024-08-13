@@ -41,11 +41,12 @@ client.Indices.Create("question-index", q => q
                 .AsciiFolding("serbian_ascii_folding", afd => afd)
             //add a file with serbian stopwords
                 .Stop("serbian_stop_words", st => st.StopWordsPath("serbianStopwords.txt"))
+                .Stemmer("serbian_stemmer", st => st.Language("serbian"))
             )
             .Analyzers(an => an
                 .Custom("serbian_latin_analyzer", ca => ca
                     .Tokenizer("serbian_latin_tokenizer")
-                    .Filters("serbian_lowercase", "serbian_ascii_folding", "serbian_stop_words")
+                    .Filters("serbian_lowercase", "serbian_ascii_folding", "serbian_stop_words", "serbian_stemmer")
                 )
                 
             )
