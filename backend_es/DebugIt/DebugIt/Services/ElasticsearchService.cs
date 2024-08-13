@@ -38,6 +38,25 @@ public class ElasticsearchService<T> : IElasticsearchService<T> where T : class
         return res.Source;
     }
 
+    public async Task<IEnumerable<Question>> SearchAsync(string query)
+    {
+        var res = await _elasticClient.SearchAsync<Question>(s => s
+            .Index("question-index")
+            .Query(q => q
+                //full text search
+                .MultiMatch(m => m
+                    .Query(query.ToLower())
+                    .Fields( f => f
+                        .Field(ff => ff.Title)
+                        .Field(ff => ff.Description)
+                        .Field(ff => ff.Tags)
+                    )
+                )
+            )
+            .Size(1000));
+        return res.Documents;
+    }
+
     public async Task<string> UpdateDocumentAsync(T document)
     {
         var res = await _elasticClient.UpdateAsync(new DocumentPath<T>(document), d => d

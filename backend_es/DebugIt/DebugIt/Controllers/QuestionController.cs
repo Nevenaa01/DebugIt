@@ -25,8 +25,15 @@ namespace DebugIt.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetDocument(int id)
         {
-            var document = await _elasticsearchService.GetDocumentAsync(id);
-            return document == null ? NotFound() : Ok(document);
+            var result = await _elasticsearchService.GetDocumentAsync(id);
+            return result == null ? NotFound() : Ok(result);
+        }
+
+        [HttpGet("/search/{query}")]
+        public async Task<IActionResult> Search(string query)
+        {
+            var result = await _elasticsearchService.SearchAsync(query);
+            return Ok(result);
         }
 
         [HttpPost]

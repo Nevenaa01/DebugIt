@@ -1,4 +1,5 @@
-﻿
+﻿using Nest;
+
 namespace DebugIt.Domain;
 
 public class Question
@@ -10,9 +11,10 @@ public class Question
     public long? EditedOn { get; set; }
     public int UserId { get; set; }
     public int NumOfVotes { get; set; }
+    public List<string> Tags { get; set; }
 
     public Question() { }
-    public Question(int id, string title, string description, long postedOn, long? editedOn, int userId, int numOfVotes)
+    public Question(int id, string title, string description, long postedOn, long? editedOn, int userId, int numOfVotes, List<string> tags)
     {
         Id = id;
         Title = title;
@@ -21,6 +23,7 @@ public class Question
         EditedOn = editedOn;
         UserId = userId;
         NumOfVotes = numOfVotes;
+        Tags = tags;
 
         Validate();
     }
@@ -31,6 +34,7 @@ public class Question
         if (string.IsNullOrWhiteSpace(Description)) throw new ArgumentException("Invalid Description");
         if (PostedOn > GetMilliseconds(DateTime.UtcNow)) throw new ArgumentException("Invalid PostedOn date");
         if (NumOfVotes != 0) throw new ArgumentException("Invalid NumOfVotes");
+        if (Tags.Count == 0) throw new ArgumentException("Invalid Tags");
     }
 
     private long GetMilliseconds(DateTime date)

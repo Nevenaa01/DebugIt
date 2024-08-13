@@ -28,8 +28,45 @@ client.Indices.Create("question-index", q => q
         .NumberOfReplicas(2)
         .Setting("index.merge.policy.max_merged_segment", "10mb")
         .Setting("index.search.slowlog.threshold.fetch.warn", "1s")
+        .Analysis(a => a
+            .Tokenizers(t => t
+            //custom tokenizer for Serbian Latin
+            //works like the standard tokenizer
+                .Standard("serbian_latin_tokenizer")
+            )
+            .TokenFilters(tf => tf
+            //converts all text to lowercase, for consistent searches
+                .Lowercase("serbian_lowercase")
+            //diacritical c -> c and diacritical s -> s, so the search is more flexible
+                .AsciiFolding("serbian_ascii_folding", afd => afd)
+            )
+            .Analyzers(an => an
+                .Custom("serbian_latin_analyzer", ca => ca
+                    .Tokenizer("serbian_latin_tokenizer")
+                    .Filters("serbian_lowercase", "serbian_ascii_folding")
+                )
+            )
+        )
     )
-    .Map<Question>(m => m.AutoMap()));
+    .Map<Question>(m => m
+        .AutoMap()
+        .Properties(p => p
+            .Text(t => t
+                .Name(n => n.Title)
+                //apply analyzer to this field
+                .Analyzer("serbian_latin_analyzer")
+            )
+            .Text(t => t
+                .Name(n => n.Description)
+                //apply analyzer to this field
+                .Analyzer("serbian_latin_analyzer")
+            )
+            .Keyword(t => t
+                .Name(n => n.Tags)
+            )
+        )
+    )
+);
 
 client.Indices.Create("comment-index", c => c
     .Settings(s => s
