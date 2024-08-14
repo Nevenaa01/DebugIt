@@ -8,17 +8,18 @@
     display: flex;
     align-items: center;
     width: 100%;
-    position: relative; /* Allows absolute positioning of the search bar */
+    position: relative;
 }
 
 .title {
     position: absolute;
-    left: 20px; /* Adjust if needed */
+    left: 20px;
+    cursor:pointer;
 }
 
 .search-wrapper {
     display: flex;
-    flex: 1; /* Take up remaining space to center the search bar */
+    flex: 1;
     justify-content: center;
 }
 
@@ -26,12 +27,12 @@
     display: flex;
     align-items: center;
     position: relative;
-    width: 60%; /* Adjust width as needed */
+    width: 60%;
 }
 
 .search-bar {
-    width: 100%; /* Make the search bar fill the container */
-    padding: 10px 60px; /* Added padding to accommodate the button */
+    width: 100%;
+    padding: 10px 60px;
     font-size: 16px;
     border: 2px solid #555;
     border-radius: 25px;

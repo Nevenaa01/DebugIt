@@ -1,12 +1,12 @@
 <div class="wrapper">
   <div *ngFor="let question of allQuestions">
-    <mat-card class="card" appearance="outlined">
+    <mat-card class="card" appearance="outlined" (click)="showQuestion(question.id)">
       <mat-card-header>
         <div class="header-content">
           <mat-card-title class="mat-card-title">{{question.title}}</mat-card-title>
           <div class="votes-comments">
-            <p>votes - {{question.numOfVotes}}</p>
-            <p>comments - {{question.numOfVotes}}</p>
+            <p>glasovi - {{question.numOfVotes}}</p>
+            <p>odgovori - {{question.numOfVotes}}</p>
           </div>
         </div>
       </mat-card-header>

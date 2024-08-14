@@ -15,12 +15,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { QuestionComponent } from './feature-modules/question/question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AllQuestionsComponent
+    AllQuestionsComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

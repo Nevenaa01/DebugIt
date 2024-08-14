@@ -1,0 +1,28 @@
+.question-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    margin: 35px 10%;
+}
+
+.sidebar {
+    background-color: #3d5c5e !important;
+    padding: 35px 20px;
+    height: 100vh;
+    overflow-y: auto;
+    color: #aaa !important
+}
+
+.postedDate {
+    color: #aaa;
+}
+
+.postedDate p {
+    margin: 2px;
+}
+
+.description {
+    font-size: 18px;
+    margin-top: 10%;
+}

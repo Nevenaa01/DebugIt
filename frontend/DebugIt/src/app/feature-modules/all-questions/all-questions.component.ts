@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../model/question.model';
 import { Service } from '../service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-questions',
@@ -10,17 +11,22 @@ import { Service } from '../service';
 export class AllQuestionsComponent implements OnInit{
   allQuestions: Question[] = []
 
-  constructor(private service: Service) {}
+  constructor(private service: Service,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.getQuestions();
   }
 
   getQuestions(): void{
-    this.service.getAllQuestion().subscribe({
+    this.service.getAllQuestions().subscribe({
       next: result => this.allQuestions = result,
       error: (error: any) => console.log(error),
       complete: (): any => {}
     })
+  }
+
+  showQuestion(id: number){
+      this.router.navigate(['/question/' + id])
   }
 }
