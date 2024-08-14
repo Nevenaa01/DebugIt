@@ -202,5 +202,7 @@ cete
 ces
 ću
 cu
+šta
+sta
 što
 sto
