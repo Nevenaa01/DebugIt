@@ -1,0 +1,21 @@
+<mat-toolbar class="navbar">
+  <mat-toolbar-row class="toolbar-row">
+    <h1 class="title">DebugIt</h1>
+    <div class="search-wrapper">
+      <div class="search-container">
+        <mat-icon class="search-icon">search</mat-icon>
+        <input type="search" class="form-control rounded search-bar" placeholder="Search"/>
+        <button mat-fab class="add-button"><mat-icon>add</mat-icon></button>
+      </div>
+    </div>
+    <div class="button-group">
+      <button mat-fab class="expand-button" [matMenuTriggerFor]="menu">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+      <mat-menu class="dropdown-items" #menu="matMenu">
+        <button mat-menu-item ><mat-icon>person_outline</mat-icon>My profile</button>
+        <button mat-menu-item><mat-icon>subdirectory_arrow_left</mat-icon>Log out</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

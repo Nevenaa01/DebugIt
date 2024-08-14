@@ -1,0 +1,85 @@
+.navbar {
+    background-color: #282828;
+    color: white;
+    width: 100vw;
+}
+
+.toolbar-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative; /* Allows absolute positioning of the search bar */
+}
+
+.title {
+    position: absolute;
+    left: 20px; /* Adjust if needed */
+}
+
+.search-wrapper {
+    display: flex;
+    flex: 1; /* Take up remaining space to center the search bar */
+    justify-content: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 60%; /* Adjust width as needed */
+}
+
+.search-bar {
+    width: 100%; /* Make the search bar fill the container */
+    padding: 10px 60px; /* Added padding to accommodate the button */
+    font-size: 16px;
+    border: 2px solid #555;
+    border-radius: 25px;
+    background-color: #404040;
+    color: white;
+    transition: border 0.3s, background-color 0.3s;
+}
+
+.search-bar::placeholder {
+    color: #aaa;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #777;
+    background-color: #333;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 51%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 22px;
+}
+
+.add-button {
+    margin-left: 10px;
+    background-color: #3aa292 !important;
+    border-radius: 8px !important;
+    width: 40px !important;
+    height: 40px !important;
+    align-content: center;
+    color: white !important;
+}
+
+.expand-button{
+    border-radius: 8px !important;
+    width: 40px !important;
+    height: 40px !important;
+    background-color: #282828;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    margin-left: auto
+}
