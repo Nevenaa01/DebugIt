@@ -1,5 +1,6 @@
 using DebugIt.Domain;
 using DebugIt.Services;
+using DebugIt.Services.Interfaces;
 using Nest;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +18,7 @@ client.Indices.Create("user-index", u => u
         //merging segments into bigger segments
         .Setting("index.merge.policy.max_merged_segment", "10mb")
         //for logging slow search queries in Elasticsearch's slow log that is used for performance monitoring
-        //by using that, it can be sn which queries take longer than expected to execute
+        //by using that, it can be seen which queries take longer than expected to execute
         .Setting("index.search.slowlog.threshold.fetch.warn", "1s")
     )
     .Map<User>(m => m.AutoMap()));
@@ -88,6 +89,9 @@ builder.Services.AddSingleton(client);
 builder.Services.AddScoped<IElasticsearchService<User>, ElasticsearchService<User>>();
 builder.Services.AddScoped<IElasticsearchService<Question>, ElasticsearchService<Question>>();
 builder.Services.AddScoped<IElasticsearchService<Comment>, ElasticsearchService<Comment>>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

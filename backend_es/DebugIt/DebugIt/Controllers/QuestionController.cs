@@ -1,5 +1,5 @@
 ﻿using DebugIt.Domain;
-using DebugIt.Services;
+using DebugIt.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,51 +9,52 @@ namespace DebugIt.Controllers
     [ApiController]
     public class QuestionController : ControllerBase
     {
-        private readonly IElasticsearchService<Question> _elasticsearchService;
-        public QuestionController(IElasticsearchService<Question> elasticsearchService)
+        private readonly IQuestionService _questionService;
+        public QuestionController(IQuestionService questionService)
         {
-            _elasticsearchService = elasticsearchService;
+            _questionService = questionService;
+
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllDocuments()
         {
-            var result = await _elasticsearchService.GetAllDocuments();
+            var result = await _questionService.GetAllDocuments();
             return Ok(result);
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetDocument(int id)
         {
-            var result = await _elasticsearchService.GetDocumentAsync(id);
+            var result = await _questionService.GetDocumentAsync(id);
             return result == null ? NotFound() : Ok(result);
         }
 
         [HttpGet("/search/{query}")]
         public async Task<IActionResult> Search(string query)
         {
-            var result = await _elasticsearchService.SearchAsync(query);
+            var result = await _questionService.SearchAsync(query);
             return Ok(result);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateDocument([FromBody]Question question)
         {
-            var result = await _elasticsearchService.CreateDocumentAsync(question);
+            var result = await _questionService.CreateDocumentAsync(question);
             return Ok(result);
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateDocument([FromBody]Question question)
         {
-            var result = await _elasticsearchService.UpdateDocumentAsync(question);
+            var result = await _questionService.UpdateDocumentAsync(question);
             return Ok(result);
         }
 
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteDocument(int id)
         {
-            var result = await _elasticsearchService.DeleteDocumentAsync(id);
+            var result = await _questionService.DeleteDocumentAsync(id);
             return Ok(result);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using DebugIt.Domain;
+using DebugIt.Services.Interfaces;
 using Nest;
 
 namespace DebugIt.Services;
@@ -36,25 +37,6 @@ public class ElasticsearchService<T> : IElasticsearchService<T> where T : class
     {
         var res = await _elasticClient.GetAsync<T>(id, d => d.Index(typeof(T).Name.ToLower() + "-index"));
         return res.Source;
-    }
-
-    public async Task<IEnumerable<Question>> SearchAsync(string query)
-    {
-        var res = await _elasticClient.SearchAsync<Question>(s => s
-            .Index("question-index")
-            .Query(q => q
-                //full text search
-                .MultiMatch(m => m
-                    .Query(query.ToLower())
-                    .Fields( f => f
-                        .Field(ff => ff.Title)
-                        .Field(ff => ff.Description)
-                        .Field(ff => ff.Tags)
-                    )
-                )
-            )
-            .Size(1000));
-        return res.Documents;
     }
 
     public async Task<string> UpdateDocumentAsync(T document)
