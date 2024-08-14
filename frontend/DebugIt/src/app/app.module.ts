@@ -12,6 +12,9 @@ import { AllQuestionsComponent } from './feature-modules/all-questions/all-quest
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatToolbarModule,
     MatFormFieldModule,
     MatMenuModule,
+    MatCardModule,
+    MatChipsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

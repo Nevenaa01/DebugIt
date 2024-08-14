@@ -1,6 +1,7 @@
 using DebugIt.Domain;
 using DebugIt.Services;
 using DebugIt.Services.Interfaces;
+using DebugIt.Startup;
 using Nest;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -98,6 +99,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+const string corsPolicy = "_corsPolicy";
+builder.Services.ConfigureCors(corsPolicy);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -106,6 +110,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(corsPolicy);
 
 app.UseHttpsRedirection();
 
