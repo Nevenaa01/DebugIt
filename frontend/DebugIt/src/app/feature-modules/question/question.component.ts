@@ -47,6 +47,10 @@ export class QuestionComponent implements OnInit {
           this.getUser(comment.userId).then(user => {
             comment.userNameEmail = user.name + ' ' + user.lastName + ' (' + user.email + ')';
           });
+
+          this.getCommentsByThreadId(comment.id).then(num => {
+            comment.numOfCommentsInThread = num;
+          })
         })
       }
     })
@@ -69,5 +73,26 @@ export class QuestionComponent implements OnInit {
       console.error(`Error while gettin user with id ` + id + `for comment`);
       return new User();
     }
+  }
+
+  async getCommentsByThreadId(commentId: number): Promise<number>{
+    try{
+        const result = await firstValueFrom(this.service.getCommentsByThreadId(commentId));
+        return result.length;
+    }
+    catch(error){
+      console.error(`Error while getting comments of a thread with id ` + commentId)
+      return 0;
+    }
+  }
+
+  getNumOfComments(): number{
+    var com: number = 0;
+    this.comments.forEach(comment => {
+      if(comment.commentThreadId == null)
+        com += 1;
+    });
+
+    return com;
   }
 }

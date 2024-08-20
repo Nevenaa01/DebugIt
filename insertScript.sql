@@ -481,3 +481,111 @@ POST /comment-index/_doc/-10
   "numOfVotes": 0,
   "commentThreadId": -9
 }
+
+POST /comment-index/_doc/-11
+{
+  "id": -11,
+  "questionId": -1,
+  "description": "Slažem se, rekurzivna metoda dobro funkcioniše za ovo.",
+  "userId": -5,
+  "postedOn": 1690897200000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-12
+{
+  "id": -12,
+  "questionId": -1,
+  "description": "Mislim da bi korišćenje strukture stabla moglo biti efikasnije.",
+  "userId": -6,
+  "postedOn": 1690900800000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-13
+{
+  "id": -13,
+  "questionId": -1,
+  "description": "Možeš da dodas još detalja o implementaciji.",
+  "userId": -7,
+  "postedOn": 1690904400000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": -11
+}
+
+POST /comment-index/_doc/-14
+{
+  "id": -14,
+  "questionId": -1,
+  "description": "Da, dodatni primeri bi bili korisni.",
+  "userId": -8,
+  "postedOn": 1690908000000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": -11
+}
+
+POST /comment-index/_doc/-15
+{
+  "id": -15,
+  "questionId": -1,
+  "description": "Kao dodatak, možeš istražiti i alternative.",
+  "userId": -9,
+  "postedOn": 1690911600000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": -12
+}
+
+POST /comment-index/_doc/-16
+{
+  "id": -16,
+  "questionId": -1,
+  "description": "Razumem tvoju tačku, ali možda bi trebali dodati još nekoliko primera.",
+  "userId": -10,
+  "postedOn": 1690915200000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": -13
+}
+
+POST /comment-index/_doc/-17
+{
+  "id": -17,
+  "questionId": -1,
+  "description": "Slažem se, primeri su ključni za bolje razumevanje.",
+  "userId": -11,
+  "postedOn": 1690918800000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": -13
+}
+
+POST /comment-index/_doc/-18
+{
+  "id": -18,
+  "questionId": -1,
+  "description": "Kao dodatak, možete istražiti različite pristupe za optimizaciju.",
+  "userId": -12,
+  "postedOn": 1690922400000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": -15
+}
+
+POST /comment-index/_doc/-19
+{
+  "id": -19,
+  "questionId": -1,
+  "description": "Takođe, razmislite o mogućim problemima i rešenjima.",
+  "userId": -13,
+  "postedOn": 1690926000000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": -15
+}

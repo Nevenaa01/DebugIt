@@ -8,4 +8,5 @@ export class Comment{
     numOfVotes: number = 0;
     commentThreadId: number | undefined;
     userNameEmail: string = '';
+    numOfCommentsInThread: number | undefined;
 }

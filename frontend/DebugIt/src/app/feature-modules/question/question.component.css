@@ -15,7 +15,7 @@
     box-sizing: border-box;
 }
 
-.col-sm-10{
+.col-sm-10 {
     padding-right: 0;
 }
 
@@ -53,7 +53,7 @@
     margin: 2px;
 }
 
-.vote-wrapper{
+.vote-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +64,7 @@
     color: var(--fourth-color);
 }
 
-.up-down-vote{
+.up-down-vote {
     background-color: var(--passive-color) !important;
     color: var(--fourth-color) !important;
     margin-bottom: 20px;
@@ -93,28 +93,32 @@
     background-color: var(--tag-color) !important;
 }
 
-.add-comment-section{
+.add-comment-section {
     margin: 0;
     margin-top: 2%;
 }
 
-.add-comment-section p{
+.add-comment-section p {
     margin: 0;
     padding: 0;
 }
 
-.submit-comment-button{
+.submit-comment-button {
     margin-top: 20px;
     background-color: var(--accent-color) !important;
     color: var(--fourth-color) !important;
 }
 
-.comment{
-    margin-bottom: 10px;
+.comment {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
     padding: 0 2%;
+    height: 100%;
 }
 
-.your-comment, .all-comments{
+.your-comment,
+.all-comments {
     font-weight: 400;
     font-size: 20px;
 }
@@ -128,7 +132,7 @@
     background-color: #404040;
     color: var(--fourth-color);
     transition: border 0.3s, background-color 0.3s;
-    resize: none; 
+    resize: none;
 }
 
 .comment-textarea::placeholder {
@@ -141,12 +145,179 @@
     background-color: #333;
 }
 
-.comment-section-wrapper{
+.comment-section-wrapper {
     margin-top: 5%;
 }
 
-.comment-section{
+.comment-section {
     background-color: var(--primary-color);
     border: 2px solid var(--third-color);
     border-radius: 10px;
+}
+
+.comment-info {
+    position: relative;
+}
+
+.user-commented {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5%;
+}
+
+.comment-footer {
+    position: absolute;
+    bottom: 0;
+    color: var(--third-color);
+    padding-bottom: 12px;
+}
+
+.subcomments-num {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.subcomments-num hr {
+    flex-grow: 1;
+    border: none; 
+    border-top: 2px solid #aaa; 
+    margin: 0 10px; 
+    width: 80%;
+    display: inline-block;
+}
+
+.comment-footer p {
+    margin-bottom: 0;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 25px;
+    background-color: var(--third-color);
+    margin: 0 20px;
+    margin-bottom: 10px;
+}
+
+.comment-vote-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--fourth-color);
+}
+
+.comment-up-down-vote {
+    background-color: var(--passive-color) !important;
+    color: var(--fourth-color) !important;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-up-down-vote mat-icon {
+    font-size: 20px;
+}
+
+.subcomments {
+    padding-left: 19%;
+    margin-bottom: 10px;
+}
+
+.subcomment-info {
+    color: #ccc;
+}
+
+.user-subcommented {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 2%;
+}
+
+.textarea-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.textarea-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.subcomment-textarea {
+    width: 100%;
+    padding-left: 40px;
+    /* Space for the icon */
+    padding-right: 60px;
+    /* Space for the button */
+    border: 1px solid #555;
+    background-color: #404040;
+    color: var(--fourth-color);
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+}
+
+.subcomment-textarea::placeholder {
+    color: var(--third-color);
+}
+
+.subcomment-textarea:focus {
+    outline: none;
+    border-color: #777;
+    background-color: #333;
+}
+
+.textarea-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.submit-button {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent-color);
+    color: var(--fourth-color);
+    border: none;
+    border-radius: 4px;
+    padding: 2px 10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.submit-button.visible {
+    opacity: 1;
+}
+
+.submit-button:focus {
+    outline: none;
+}
+
+.subcomment-textarea:not(:placeholder-shown)+.submit-button {
+    opacity: 1;
+}
+
+.textarea-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
 }

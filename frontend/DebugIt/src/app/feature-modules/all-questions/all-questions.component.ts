@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../model/question.model';
+import { Comment } from '../model/comment.model';
 import { Service } from '../service';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
@@ -25,8 +26,15 @@ export class AllQuestionsComponent implements OnInit{
       error: (error: any) => console.log(error),
       complete: (): any => {
         this.allQuestions.forEach(question =>{
-          this.getCommentsByQuestionId(question.id).then(count => {
-            question.numOfComments = count; 
+          this.getCommentsByQuestionId(question.id).then(comments => {
+            question.numOfComments = 0;
+            
+            comments.forEach(comment => {
+              if(comment.commentThreadId == null){
+                question.numOfComments += 1; 
+              }
+            })
+            
         }).catch(err => {
             console.error(`Error while getting comments for questionId: ${question.id}`, err);
         });
@@ -35,13 +43,13 @@ export class AllQuestionsComponent implements OnInit{
     })
   }
 
-  async getCommentsByQuestionId(questionId: number): Promise<number> {
+  async getCommentsByQuestionId(questionId: number): Promise<Comment[]> {
     try {
         const result = await firstValueFrom(this.service.getCommentsByQuestionId(questionId));
-        return result.length;
+        return result;
     } catch (error) {
         console.error(`Error while getting comments for questionId: ${questionId}`, error);
-        return 0;
+        return [];
     }
 }
 
