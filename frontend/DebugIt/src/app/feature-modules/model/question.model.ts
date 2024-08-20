@@ -7,4 +7,5 @@ export class Question{
     userId: number = 0;
     numOfVotes: number = 0;
     tags: Array<string> = [];
+    numOfComments: number = 0;
 }

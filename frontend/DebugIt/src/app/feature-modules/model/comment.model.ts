@@ -7,4 +7,5 @@ export class Comment{
     editedOn: number | undefined;
     numOfVotes: number = 0;
     commentThreadId: number | undefined;
+    userNameEmail: string = '';
 }

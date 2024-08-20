@@ -4,6 +4,7 @@ import { Question } from "./model/question.model";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../env/environment";
 import { User } from "./model/user.model";
+import { Comment } from "./model/comment.model";
 
 @Injectable({
     providedIn: 'root',

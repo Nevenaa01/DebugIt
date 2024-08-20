@@ -5,8 +5,8 @@
         <div class="header-content">
           <mat-card-title class="mat-card-title">{{question.title}}</mat-card-title>
           <div class="votes-comments">
-            <p>glasovi - {{question.numOfVotes}}</p>
-            <p>odgovori - {{question.numOfVotes}}</p>
+            <p><mat-icon class="votes-comments-icons">thumbs_up_down</mat-icon> {{question.numOfVotes}}</p>
+            <p><mat-icon class="votes-comments-icons"> mode_comment</mat-icon>&nbsp;&nbsp;{{question.numOfComments}}</p>
           </div>
         </div>
       </mat-card-header>

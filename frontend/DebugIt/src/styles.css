@@ -8,8 +8,19 @@ body {
 }
 
 .app-container{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #3f3f3f;
+    background-color: var(--background-color);
+}
+
+:root{
+    --primary-color: #575757;
+    --secondary-color: #282828;
+    --third-color: #aaa;
+    --fourth-color: white;
+    --accent-color: #3aa292;
+    --passive-color: #3d5c5e;
+    --background-color: #3f3f3f;
+    --tag-color: #f7cf63;
 }

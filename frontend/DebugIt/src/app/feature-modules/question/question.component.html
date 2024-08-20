@@ -1,24 +1,52 @@
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-2 sidebar">
-        <p>datum postavljnja: {{question.postedOn | date:'dd/MM/yyyy HH:mm'}}</p>
-
+  <div class="row">
+    <div class="col-sm-2 sidebar">
+      <p>postavio:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{authorOfQuestion.name}}
+        {{authorOfQuestion.lastName}}<br>&nbsp;&nbsp;&nbsp;&nbsp;({{this.authorOfQuestion.email}})</p>
+      <hr>
+      <p>postavljeno:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{question.postedOn | date:'dd/MM/yyyy, HH:mm'}}</p>
+      <hr>
+      <p>broj komentara:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{comments.length}}</p>
+      <hr><br><br>
+      <div class="vote-wrapper">
+        <button mat-fab class="up-down-vote up-vote"><mat-icon>thumb_up</mat-icon></button>
+        <p class="vote-count">{{question.numOfVotes}}</p>
+        <button mat-fab class="up-down-vote down-vote"><mat-icon>thumb_down</mat-icon></button>
       </div>
-  
-      <div class="col-sm-10">
-        <div class="question-wrapper">
-          <div class="row">
-              <h1>{{question.title}}</h1>
-          </div>
-          <div class="row description">
-            <p>{{question.description}}</p>
-          </div>
-          <hr>
-          <div class="row">
+    </div>
 
+    <div class="col-sm-10">
+      <div class="question-wrapper">
+        <div class="row">
+          <h1>{{question.title}}</h1>
+        </div>
+        <div class="row description">
+          <p>{{question.description}}</p>
+        </div>
+        <div class="row tag-wrapper">
+          <div class="tag-container">
+            <mat-chip *ngFor="let tag of question.tags" class="tag">{{tag}}</mat-chip>
+          </div>
+        </div>
+        <hr>
+        <div class="row add-comment-section">
+          <p class="your-comment">Komentarisi:</p>
+          <textarea class="comment-textarea" placeholder="Resenje za ovaj bug.." rows="5"></textarea>
+          <button mat-raised-button class="submit-comment-button">Posalji odgovor</button>
+        </div>
+        <div class="comment-section-wrapper">
+          <p class="all-comments">Komentari:</p>
+          <div class="comment-section">
+            <div *ngFor="let comment of comments">
+              <div class="comment">
+                <p>{{comment.userNameEmail}}</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;{{comment.description}}</p>
+                <hr>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

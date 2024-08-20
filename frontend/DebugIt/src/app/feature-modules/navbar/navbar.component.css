@@ -1,7 +1,12 @@
 .navbar {
-    background-color: #282828;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: var(--secondary-color);
     color: white;
-    width: 100vw;
+    z-index: 1000;
 }
 
 .toolbar-row {
@@ -37,12 +42,12 @@
     border: 2px solid #555;
     border-radius: 25px;
     background-color: #404040;
-    color: white;
+    color: var(--fourth-color);
     transition: border 0.3s, background-color 0.3s;
 }
 
 .search-bar::placeholder {
-    color: #aaa;
+    color: var(--third-color);
 }
 
 .search-bar:focus {
@@ -56,26 +61,26 @@
     left: 15px;
     top: 51%;
     transform: translateY(-50%);
-    color: #aaa;
+    color: var(--third-color);
     font-size: 22px;
 }
 
 .add-button {
     margin-left: 10px;
-    background-color: #3aa292 !important;
+    background-color: var(--accent-color) !important;
     border-radius: 8px !important;
     width: 40px !important;
     height: 40px !important;
     align-content: center;
-    color: white !important;
+    color: var(--fourth-color) !important;
 }
 
 .expand-button{
     border-radius: 8px !important;
     width: 40px !important;
     height: 40px !important;
-    background-color: #282828;
-    color: white !important;
+    background-color: var(--secondary-color);
+    color: var(--fourth-color) !important;
     box-shadow: none !important;
 }
 
