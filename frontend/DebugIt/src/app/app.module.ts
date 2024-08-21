@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { QuestionComponent } from './feature-modules/question/question.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { QuestionComponent } from './feature-modules/question/question.component
     MatCardModule,
     MatChipsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

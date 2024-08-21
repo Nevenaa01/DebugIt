@@ -10,7 +10,8 @@ public static class CorsConfiguration
                 builder =>
                 {
                     builder.WithOrigins(ParseCorsOrigins())
-                        .WithMethods("GET", "PUT", "POST", "PATCH", "DELETE", "OPTIONS");
+                        .WithMethods("GET", "PUT", "POST", "PATCH", "DELETE", "OPTIONS")
+                        .WithHeaders("Content-Type");
                     // builder.WithOrigins("http://localhost:8080")
                     //.AllowAnyHeader()
                     //.AllowAnyMethod()

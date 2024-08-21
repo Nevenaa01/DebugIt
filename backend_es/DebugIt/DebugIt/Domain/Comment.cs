@@ -29,7 +29,6 @@ public class Comment
     private void Validate()
     {
         if (string.IsNullOrWhiteSpace(Description)) throw new ArgumentException("Invalid Description");
-        if (NumOfVotes != 0) throw new ArgumentException("Invalid NumOfVotes");
         if (PostedOn > GetMilliseconds(DateTime.UtcNow)) throw new ArgumentException("Invalid PostedOn date");
     }
 

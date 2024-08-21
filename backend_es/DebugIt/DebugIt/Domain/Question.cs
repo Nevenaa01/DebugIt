@@ -33,7 +33,6 @@ public class Question
         if (string.IsNullOrWhiteSpace(Title)) throw new ArgumentException("Invalid Title");
         if (string.IsNullOrWhiteSpace(Description)) throw new ArgumentException("Invalid Description");
         if (PostedOn > GetMilliseconds(DateTime.UtcNow)) throw new ArgumentException("Invalid PostedOn date");
-        if (NumOfVotes != 0) throw new ArgumentException("Invalid NumOfVotes");
         if (Tags.Count == 0) throw new ArgumentException("Invalid Tags");
     }
 

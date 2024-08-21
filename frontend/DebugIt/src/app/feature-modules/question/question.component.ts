@@ -15,6 +15,7 @@ export class QuestionComponent implements OnInit {
   question!: Question;
   comments: Comment[] = [];
   authorOfQuestion!: User;
+  newCommentText: string = '';
 
   constructor(private route: ActivatedRoute,
     private service: Service) {}
@@ -43,6 +44,8 @@ export class QuestionComponent implements OnInit {
       next: result => this.comments = result,
       error: (error: any) => console.log(error),
       complete: (): any => {
+        this.sortComments();   
+
         this.comments.forEach(comment => {
           this.getUser(comment.userId).then(user => {
             comment.userNameEmail = user.name + ' ' + user.lastName + ' (' + user.email + ')';
@@ -94,5 +97,77 @@ export class QuestionComponent implements OnInit {
     });
 
     return com;
+  }
+
+  voteQuestion(type: string): void{
+    this.question.numOfVotes += type == 'upvote' ? 1 : -1;
+
+    this.service.updateQuestion(this.question).subscribe({
+      next: result => {},
+      error: (error: any) => console.log(error),
+      complete: (): any => {}
+    })
+  }
+
+  voteComment(comment: Comment, type: string): void{
+    comment.numOfVotes += type == 'upvote' ? 1 : -1;
+
+    this.sortComments();
+
+    this.service.updateComment(comment).subscribe({
+      next: result => {},
+      error: (error: any) => console.log(error),
+      complete: (): any => {}
+    })
+  }
+
+  addNewComment(comment: Comment | undefined): void{
+      var newComment = {
+        questionId: this.question.id,
+        description: comment == undefined ? this.newCommentText : comment.newSubcommentText,
+        userId: comment == undefined ? -2 : -3,
+        postedOn: new Date().getTime(),
+        editedOn: undefined,
+        numOfVotes: 0,
+        commentThreadId: comment?.id,
+        userNameEmail: comment == undefined ? 'Asistent1 Asistent (asistent1@example.com)' : 'Asistent2 Asistent (asistent2@example.com)',
+        numOfCommentsInThread: 0
+      }
+
+      this.comments.push(newComment as Comment)
+
+      if(comment == undefined){
+        this.sortComments();  
+
+        this.newCommentText = '';
+      }
+      else{
+        comment.newSubcommentText = '';
+        comment.numOfCommentsInThread = comment.numOfCommentsInThread == undefined ? 0 : comment.numOfCommentsInThread + 1;
+      }
+
+      this.service.createComment(newComment as Comment).subscribe({
+        next: result => {},
+        error: (error: any) => console.log(error),
+        complete: (): any => {}
+      })
+  }
+
+  sortComments(): void{
+    this.comments.sort((a, b) => {
+      if (a.commentThreadId === null && b.commentThreadId === null) {
+        if (a.numOfVotes !== b.numOfVotes) {
+          return b.numOfVotes - a.numOfVotes;
+        } else {
+          return new Date(b.postedOn).getTime() - new Date(a.postedOn).getTime();
+        }
+      } else if (a.commentThreadId === null) {
+        return -1;
+      } else if (b.commentThreadId === null) {
+        return 1;
+      } else {
+        return b.numOfVotes - a.numOfVotes;
+      }
+    });
   }
 }

@@ -25,6 +25,8 @@ export class AllQuestionsComponent implements OnInit{
       next: result => this.allQuestions = result,
       error: (error: any) => console.log(error),
       complete: (): any => {
+        this.allQuestions.sort((a, b) => b.postedOn - a.postedOn);
+
         this.allQuestions.forEach(question =>{
           this.getCommentsByQuestionId(question.id).then(comments => {
             question.numOfComments = 0;

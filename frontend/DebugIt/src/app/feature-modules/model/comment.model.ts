@@ -9,4 +9,5 @@ export class Comment{
     commentThreadId: number | undefined;
     userNameEmail: string = '';
     numOfCommentsInThread: number | undefined;
+    newSubcommentText: string = '';
 }

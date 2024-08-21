@@ -9,9 +9,9 @@
       <p>broj komentara:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{getNumOfComments()}}</p>
       <hr><br><br>
       <div class="vote-wrapper">
-        <button mat-fab class="up-down-vote up-vote"><mat-icon>thumb_up</mat-icon></button>
+        <button mat-fab class="up-down-vote up-vote" (click)="voteQuestion('upvote')"><mat-icon>thumb_up</mat-icon></button>
         <p class="vote-count">{{question.numOfVotes}}</p>
-        <button mat-fab class="up-down-vote down-vote"><mat-icon>thumb_down</mat-icon></button>
+        <button mat-fab class="up-down-vote down-vote" (click)="voteQuestion('downvote')"><mat-icon>thumb_down</mat-icon></button>
       </div>
     </div>
 
@@ -31,8 +31,8 @@
         <hr>
         <div class="row add-comment-section">
           <p class="your-comment">Komentarisi:</p>
-          <textarea class="comment-textarea" placeholder="Resenje za ovaj bug.." rows="5"></textarea>
-          <button mat-raised-button class="submit-comment-button">Posalji odgovor</button>
+          <textarea class="comment-textarea" placeholder="Resenje za ovaj bug.." rows="5" [(ngModel)]="newCommentText"></textarea>
+          <button mat-raised-button class="submit-comment-button" (click)="addNewComment(undefined)">Posalji odgovor</button>
         </div>
         <div class="comment-section-wrapper">
           <p class="all-comments">Komentari:</p>
@@ -42,13 +42,16 @@
                 <div class="row h-100%">
                   <div class="col-sm-2">
                     <div class="comment-vote-wrapper">
-                      <button mat-fab class="comment-up-down-vote up-vote"><mat-icon>thumb_up</mat-icon></button>
-                      <p class="vote-count">{{question.numOfVotes}}</p>
-                      <button mat-fab class="comment-up-down-vote down-vote"><mat-icon>thumb_down</mat-icon></button>
+                      <button mat-fab class="comment-up-down-vote up-vote" (click)="voteComment(comment, 'upvote')"><mat-icon>thumb_up</mat-icon></button>
+                      <p class="vote-count">{{comment.numOfVotes}}</p>
+                      <button mat-fab class="comment-up-down-vote down-vote" (click)="voteComment(comment, 'downvote')"><mat-icon>thumb_down</mat-icon></button>
                     </div>
                   </div>
                   <div class="col-sm-10 h-100% comment-info">
-                    <p class="user-commented">{{comment.userNameEmail}}</p>
+                    <div class="comment-header">
+                        <p class="user-commented">{{comment.userNameEmail}}</p>
+                        <p class="comment-posted">{{comment.postedOn | date:'dd/MM/yyyy, HH:mm'}}</p>
+                    </div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;{{comment.description}}</p>
 
                     <div class="row">
@@ -67,7 +70,10 @@
                     <div class="vertical-line"></div>
                     <div *ngFor="let subcomment of comments">
                       <div *ngIf="subcomment.commentThreadId == comment.id" class="subcomment-info">
-                        <p class="user-subcommented">{{subcomment.userNameEmail}}</p>
+                        <div class="comment-header">
+                          <p class="user-subcommented">{{subcomment.userNameEmail}}</p>
+                          <p class="subcomment-posted">{{subcomment.postedOn | date:'dd/MM/yyyy, HH:mm'}}</p>
+                        </div>
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;{{subcomment.description}}</p>
                         <hr>
                       </div>
@@ -76,8 +82,8 @@
                   <div class="add-subcomment">
                     <div class="textarea-container">
                       <mat-icon class="textarea-icon">add_comment</mat-icon>
-                      <textarea class="subcomment-textarea" placeholder="Dodaj komentar..." rows="1"></textarea>
-                      <button class="submit-button" type="button">Posalji</button>
+                      <textarea class="subcomment-textarea" placeholder="Dodaj komentar..." rows="1" [(ngModel)]="comment.newSubcommentText"></textarea>
+                      <button class="submit-button" type="button" (click)="addNewComment(comment)">Posalji</button>
                     </div>
                   </div>
                 </div>
