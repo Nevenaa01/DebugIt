@@ -4,7 +4,8 @@
     <div class="search-wrapper">
       <div class="search-container">
         <mat-icon class="search-icon">search</mat-icon>
-        <input type="search" class="form-control rounded search-bar" placeholder="Search"/>
+        <input type="search" class="form-control rounded search-bar" placeholder="Search" [(ngModel)]="query" 
+            (keydown)="updateSearch($event)" (input)="onInputChange($event)"/>
         <button mat-fab class="add-button"><mat-icon>add</mat-icon></button>
       </div>
     </div>

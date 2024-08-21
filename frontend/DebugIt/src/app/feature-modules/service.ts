@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Question } from "./model/question.model";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../env/environment";
@@ -10,6 +10,9 @@ import { Comment } from "./model/comment.model";
     providedIn: 'root',
   })
 export class Service {
+    private querySource = new BehaviorSubject<string>('');
+    currentQuery = this.querySource.asObservable();
+
     constructor(private http: HttpClient) {}
 
     getAllQuestions(): Observable<Question[]>{
@@ -18,6 +21,10 @@ export class Service {
 
     getQuestion(id: number): Observable<Question>{
         return this.http.get<Question>(environment.apiHost + 'question/' + id);
+    }
+
+    updateSearchQuery(query: string){
+        this.querySource.next(query);
     }
 
     search(query: string): Observable<Question[]>{

@@ -18,6 +18,7 @@ export class AllQuestionsComponent implements OnInit{
 
   ngOnInit(): void {
     this.getQuestions();
+    this.search();
   }
 
   getQuestions(): void{
@@ -25,22 +26,9 @@ export class AllQuestionsComponent implements OnInit{
       next: result => this.allQuestions = result,
       error: (error: any) => console.log(error),
       complete: (): any => {
-        this.allQuestions.sort((a, b) => b.postedOn - a.postedOn);
+        this.sortQuestions();
 
-        this.allQuestions.forEach(question =>{
-          this.getCommentsByQuestionId(question.id).then(comments => {
-            question.numOfComments = 0;
-            
-            comments.forEach(comment => {
-              if(comment.commentThreadId == null){
-                question.numOfComments += 1; 
-              }
-            })
-            
-        }).catch(err => {
-            console.error(`Error while getting comments for questionId: ${question.id}`, err);
-        });
-        })
+        this.getStatsForQuestions();
       }
     })
   }
@@ -53,7 +41,46 @@ export class AllQuestionsComponent implements OnInit{
         console.error(`Error while getting comments for questionId: ${questionId}`, error);
         return [];
     }
-}
+  }
+
+  search(): void {
+    this.service.currentQuery.subscribe(query => {
+      if(query == ''){
+        this.getQuestions();
+      }
+      else if(query){
+        this.service.search(query).subscribe(results =>{
+          this.allQuestions = results;
+
+          this.getStatsForQuestions();
+        });
+      }
+      else{
+        this.allQuestions = [];
+      }
+    })
+  }
+
+  sortQuestions(): void {
+    this.allQuestions.sort((a, b) => b.postedOn - a.postedOn);
+  }
+
+  getStatsForQuestions(): void{
+    this.allQuestions.forEach(question =>{
+      this.getCommentsByQuestionId(question.id).then(comments => {
+        question.numOfComments = 0;
+        
+        comments.forEach(comment => {
+          if(comment.commentThreadId == null){
+            question.numOfComments += 1; 
+          }
+        })
+        
+    }).catch(err => {
+        console.error(`Error while getting comments for questionId: ${question.id}`, err);
+    });
+    })
+  }
 
   showQuestion(id: number){
       this.router.navigate(['/question/' + id])

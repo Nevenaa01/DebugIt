@@ -30,7 +30,7 @@ namespace DebugIt.Controllers
             return result == null ? NotFound() : Ok(result);
         }
 
-        [HttpGet("/search/{query}")]
+        [HttpGet("search/{query}")]
         public async Task<IActionResult> Search(string query)
         {
             var result = await _questionService.SearchAsync(query);
