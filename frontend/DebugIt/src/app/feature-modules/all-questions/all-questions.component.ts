@@ -49,7 +49,7 @@ export class AllQuestionsComponent implements OnInit{
         this.getQuestions();
       }
       else if(query){
-        this.service.search(query).subscribe(results =>{
+        this.service.search(encodeURIComponent(query)).subscribe(results =>{
           this.allQuestions = results;
 
           this.getStatsForQuestions();
