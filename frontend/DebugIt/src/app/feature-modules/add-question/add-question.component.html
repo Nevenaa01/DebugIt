@@ -1,0 +1,16 @@
+<div class="add-question-wrapper">
+    <h1 class="page-title">Postavi novo pitanje</h1>
+    <p class="text-above">Naslov</p>
+    <input class="title" placeholder="Naslov Vaseg pitanja" [(ngModel)]="title">
+    <p class="text-above">Opis</p>
+    <textarea class="description" placeholder="Opis pitanja" rows="5" [(ngModel)]="description"></textarea>
+    <p class="text-above">Tag-ovi</p>
+    <div class="tag-container">
+        <input class="tags-input" placeholder="npr. C#" (keydown)="addTag($event)" [(ngModel)]="newTag">
+        <p class="tags-explanation">(Tag-ove predstavljaju naziv tehnologija/tehnika koje se koriste, kako bi ljudi lakse pronalazili postavljeno pitanje)</p>
+        <div class="tag-chips">
+            <mat-chip *ngFor="let tag of tags" class="tag">{{tag}} <button mat-fab (click)="removeTag(tag)" class="remove-tag-button">x</button></mat-chip>
+        </div>
+    </div>
+    <button mat-raised-button class="submit-question-button" (click)="addQuestion()">Posalji</button>
+</div>

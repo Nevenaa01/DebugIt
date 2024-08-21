@@ -17,13 +17,15 @@ import {MatChipsModule} from '@angular/material/chips';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { QuestionComponent } from './feature-modules/question/question.component';
 import { FormsModule } from '@angular/forms';
+import { AddQuestionComponent } from './feature-modules/add-question/add-question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AllQuestionsComponent,
-    QuestionComponent
+    QuestionComponent,
+    AddQuestionComponent
   ],
   imports: [
     BrowserModule,

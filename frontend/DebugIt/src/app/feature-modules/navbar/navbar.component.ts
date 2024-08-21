@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Service } from '../service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,8 @@ import { Service } from '../service';
 export class NavbarComponent {
   query: string = '';
 
-  constructor(private service: Service) {}
+  constructor(private service: Service,
+    private router: Router) {}
 
   updateSearch(event: KeyboardEvent): void{
     if(event.key == 'Enter'){
@@ -22,5 +24,9 @@ export class NavbarComponent {
     if(input.value == ''){
       this.service.updateSearchQuery('');
     }
+  }
+
+  redirectToAddQuestionPage(): void{
+    this.router.navigate(['/addQuestion'])
   }
 }
