@@ -21,6 +21,8 @@ public class QuestionService : ElasticsearchService<Question>, IQuestionService
                 //full text search
                 .MultiMatch(m => m
                     .Query(query.ToLower())
+                    .Fuzziness(Fuzziness.Auto)
+                    .FuzzyTranspositions(true)
                     .Fields(f => f
                         .Field(ff => ff.Title)
                         .Field(ff => ff.Description)

@@ -2,6 +2,7 @@ using DebugIt.Domain;
 using DebugIt.Services;
 using DebugIt.Services.Interfaces;
 using DebugIt.Startup;
+using Elasticsearch.Net;
 using Nest;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,7 +25,7 @@ client.Indices.Create("user-index", u => u
     )
     .Map<User>(m => m.AutoMap()));
 
-client.Indices.Create("question-index", q => q
+var response = client.Indices.Create("question-index", q => q
     .Settings(s => s
         .NumberOfShards(2)
         .NumberOfReplicas(2)
@@ -44,13 +45,15 @@ client.Indices.Create("question-index", q => q
             //add a file with serbian stopwords
                 .Stop("serbian_stop_words", st => st.StopWordsPath("serbianStopwords.txt"))
                 .Stemmer("serbian_stemmer", st => st.Language("serbian"))
+            //enable searching using synonyms
+                .SynonymGraph("synonym", sy => sy.SynonymsPath("serbianSynonyms.txt"))                
             )
             .Analyzers(an => an
                 .Custom("serbian_latin_analyzer", ca => ca
                     .Tokenizer("serbian_latin_tokenizer")
-                    .Filters("serbian_lowercase", "serbian_ascii_folding", "serbian_stop_words", "serbian_stemmer")
+                    .Filters("serbian_lowercase", "serbian_ascii_folding", "serbian_stop_words", "serbian_stemmer",
+                        "synonym")
                 )
-                
             )
         )
     )
@@ -73,6 +76,11 @@ client.Indices.Create("question-index", q => q
         )
     )
 );
+
+if (!response.IsValid)
+{
+    Console.WriteLine(response.OriginalException.Message.ToString());
+}
 
 client.Indices.Create("comment-index", c => c
     .Settings(s => s
