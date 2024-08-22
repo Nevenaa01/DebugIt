@@ -1,1 +1,10 @@
 bolje, prednost, prednosti
+programiranje, kodiranje
+funkcija, metoda
+promenljiva, varijabla, parametar
+baza, skladiste, db
+pretrazivanje, query, search
+petlja, ciklus, iteracija
+izuzetak, izuzeci, exception
+greska, error
+program, softver, projekat
