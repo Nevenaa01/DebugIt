@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2 sidebar">
-      <p>postavio:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{authorOfQuestion.name}}
+      <p>autor:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{authorOfQuestion.name}}
         {{authorOfQuestion.lastName}}<br>&nbsp;&nbsp;&nbsp;&nbsp;({{this.authorOfQuestion.email}})</p>
       <hr>
-      <p>postavljeno:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{question.postedOn | date:'dd/MM/yyyy, HH:mm'}}</p>
+      <p>postavljeno:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{question.postedOn | date:'dd/MM/yyyy u HH:mm'}}</p>
       <hr>
       <p>broj komentara:<br>&nbsp;&nbsp;&nbsp;&nbsp;{{getNumOfComments()}}</p>
       <hr><br><br>
@@ -50,7 +50,7 @@
                   <div class="col-sm-10 h-100% comment-info">
                     <div class="comment-header">
                         <p class="user-commented">{{comment.userNameEmail}}</p>
-                        <p class="comment-posted">{{comment.postedOn | date:'dd/MM/yyyy, HH:mm'}}</p>
+                        <p class="comment-posted">{{comment.postedOn | date:'dd/MM/yyyy u HH:mm'}}</p>
                     </div>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;{{comment.description}}</p>
 
@@ -72,7 +72,7 @@
                       <div *ngIf="subcomment.commentThreadId == comment.id" class="subcomment-info">
                         <div class="comment-header">
                           <p class="user-subcommented">{{subcomment.userNameEmail}}</p>
-                          <p class="subcomment-posted">{{subcomment.postedOn | date:'dd/MM/yyyy, HH:mm'}}</p>
+                          <p class="subcomment-posted">{{subcomment.postedOn | date:'dd/MM/yyyy u HH:mm'}}</p>
                         </div>
                         <p>&nbsp;&nbsp;&nbsp;&nbsp;{{subcomment.description}}</p>
                         <hr>

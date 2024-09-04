@@ -151,7 +151,7 @@ POST /question-index/_doc/-5
   "id": -5,
   "title": "Koja je razlika između .NET Core i .NET Framework?",
   "description": "Može li neko objasniti razlike između .NET Core i .NET Framework?",
-  "postedOn": 1691229600000,
+  "postedOn": 1691224620000,
   "editedOn": 1691231100000,
   "userId": -9,
   "numOfVotes": 0,
@@ -259,7 +259,7 @@ POST /question-index/_doc/-14
   "id": -14,
   "title": "Koje su prednosti korišćenja ASP.NET Core?",
   "description": "Koje su glavne prednosti korišćenja ASP.NET Core u odnosu na ASP.NET Framework?",
-  "postedOn": 1692007200000,
+  "postedOn": 1692040560000,
   "editedOn": 1692007800000,
   "userId": -4,
   "numOfVotes": 0,
@@ -362,232 +362,124 @@ POST /question-index/_doc/-22
   "tags": ["ruby-on-rails", "rest", "ruby"]
 }
 
-POST /comment-index/_doc/-1
+POST /question-index/_doc/-23
 {
-  "id": -1,
-  "questionId": -1,
-  "description": "Možeš koristiti rekurzivne metode za implementaciju ugnježdenih komentara.",
+  "id": -23,
+  "title": "Kako postaviti Elasticsearch klaster sa više čvorova?",
+  "description": "Koje su najbolje prakse za postavljanje Elasticsearch klastera sa više čvorova i kako obezbediti visoku dostupnost?",
+  "postedOn": 1692784800000,
+  "editedOn": 1692785700000,
   "userId": -6,
-  "postedOn": 1690890000000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
+  "numOfVotes": 5,
+  "tags": ["elasticsearch", "klaster", "visoka-dostupnost"]
 }
 
-POST /comment-index/_doc/-2
+POST /question-index/_doc/-24
 {
-  "id": -2,
-  "questionId": -1,
-  "description": "Mislim da bi korišćenje strukture stabla moglo biti efikasnije.",
-  "userId": -7,
-  "postedOn": 1690893600000,
+  "id": -24,
+  "title": "Kako optimizovati performanse u Elixir aplikacijama?",
+  "description": "Koje su ključne strategije za optimizaciju performansi u Elixir aplikacijama?",
+  "postedOn": 1692871200000,
   "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
+  "userId": -5,
+  "numOfVotes": 3,
+  "tags": ["elixir", "performanse", "optimizacija"]
 }
 
-POST /comment-index/_doc/-3
+POST /question-index/_doc/-25
 {
-  "id": -3,
-  "questionId": -2,
-  "description": "EF Core je lagana, proširiva i cross-platform verzija Entity Framework-a.",
+  "id": -25,
+  "title": "Koji su izazovi pri migraciji MySQL baze na PostgreSQL?",
+  "description": "Koji su najčešći problemi na koje se nailazi prilikom migracije MySQL baze podataka na PostgreSQL i kako ih prevazići?",
+  "postedOn": 1692957600000,
+  "editedOn": null,
   "userId": -8,
-  "postedOn": 1690975000000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
+  "numOfVotes": -2,
+  "tags": ["mysql", "postgresql", "migracija"]
 }
 
-POST /comment-index/_doc/-4
+POST /question-index/_doc/-26
 {
-  "id": -4,
-  "questionId": -3,
-  "description": "Obavezno prati RESTful principe.",
+  "id": -26,
+  "title": "Kako pravilno indeksirati podatke u Elasticsearch-u?",
+  "description": "Koji su ključni faktori koje treba uzeti u obzir prilikom indeksiranja podataka u Elasticsearch-u za optimalne performanse pretrage?",
+  "postedOn": 1693044000000,
+  "editedOn": 1693130400000,
+  "userId": -7,
+  "numOfVotes": 7,
+  "tags": ["elasticsearch", "indeksiranje", "performanse"]
+}
+
+POST /question-index/_doc/-27
+{
+  "id": -27,
+  "title": "Koje su najbolje prakse za integraciju Elasticsearch-a sa .NET Core aplikacijama?",
+  "description": "Kako integrisati Elasticsearch sa .NET Core aplikacijama i koje su najbolje prakse za to?",
+  "postedOn": 1693216800000,
+  "editedOn": null,
   "userId": -9,
-  "postedOn": 1691061300000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
+  "numOfVotes": 6,
+  "tags": ["elasticsearch", ".net-core", "integracija"]
 }
 
-POST /comment-index/_doc/-5
+POST /question-index/_doc/-28
 {
-  "id": -5,
-  "questionId": -4,
-  "description": "Možeš koristiti optimističku konkurenciju sa EF Core-om.",
+  "id": -28,
+  "title": "Koji su osnovni koraci za postavljanje CI/CD procesa u Jenkins-u?",
+  "description": "Kako postaviti osnovni CI/CD proces koristeći Jenkins i koje su najbolje prakse?",
+  "postedOn": 1693399600000,
+  "editedOn": 1693486000000,
   "userId": -10,
-  "postedOn": 1691150000000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
+  "numOfVotes": 8,
+  "tags": ["jenkins", "ci-cd", "automatizacija"]
 }
 
-POST /comment-index/_doc/-6
+POST /question-index/_doc/-29
 {
-  "id": -6,
-  "questionId": -1,
-  "description": "Slažem se, rekurzivna metoda dobro funkcioniše za ovo.",
+  "id": -29,
+  "title": "Kako unaprediti pretragu u Elasticsearch-u korišćenjem custom analiza?",
+  "description": "Koje su najbolje prakse za kreiranje custom analajzera u Elasticsearch-u za bolju pretragu podataka?",
+  "postedOn": 1693486000000,
+  "editedOn": null,
   "userId": -5,
-  "postedOn": 1690897200000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -1
+  "numOfVotes": 5,
+  "tags": ["elasticsearch", "analiza", "pretraga"]
 }
 
-POST /comment-index/_doc/-7
+POST /question-index/_doc/-30
 {
-  "id": -7,
-  "questionId": -4,
-  "description": "Možda bi trebalo da razmotriš i pesimističku konkurenciju.",
-  "userId": -5,
-  "postedOn": 1691157200000,
+  "id": -30,
+  "title": "Koji su izazovi pri radu sa distribuisanim sistemima u Go-u?",
+  "description": "Koji su najčešći problemi na koje se nailazi pri razvoju distribuisanih sistema koristeći Go?",
+  "postedOn": 1693735740000,
   "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
-}
-
-POST /comment-index/_doc/-8
-{
-  "id": -8,
-  "questionId": -5,
-  "description": "Glavna razlika je što je .NET Core cross-platformski.",
-  "userId": -6,
-  "postedOn": 1691235000000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
-}
-
-POST /comment-index/_doc/-9
-{
-  "id": -9,
-  "questionId": -6,
-  "description": "Koristi keširanje za poboljšanje performansi.",
   "userId": -7,
-  "postedOn": 1691322000000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
+  "numOfVotes": 3,
+  "tags": ["go", "distribuisani-sistemi", "izazovi"]
 }
 
-POST /comment-index/_doc/-10
+POST /question-index/_doc/-31
 {
-  "id": -10,
-  "questionId": -6,
-  "description": "Slažem se, keširanje je vrlo efikasno.",
+  "id": -31,
+  "title": "Kako koristiti Docker za testiranje mikroservisa lokalno?",
+  "description": "Koji su koraci za postavljanje lokalnog okruženja za testiranje mikroservisa koristeći Docker?",
+  "postedOn": 1693658800000,
+  "editedOn": null,
   "userId": -8,
-  "postedOn": 1691328000000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -9
+  "numOfVotes": -1,
+  "tags": ["docker", "mikroservisi", "testiranje"]
 }
 
-POST /comment-index/_doc/-11
+POST /question-index/_doc/-32
 {
-  "id": -11,
-  "questionId": -1,
-  "description": "Slažem se, rekurzivna metoda dobro funkcioniše za ovo.",
-  "userId": -5,
-  "postedOn": 1690897200000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": null
-}
-
-POST /comment-index/_doc/-12
-{
-  "id": -12,
-  "questionId": -1,
-  "description": "Mislim da bi korišćenje strukture stabla moglo biti efikasnije.",
+  "id": -32,
+  "title": "Koje su najbolje prakse za upravljanje memorijom u C++?",
+  "description": "Kako optimizovati upravljanje memorijom u C++ programima da bi se izbegli curenja memorije?",
+  "postedOn": 1693755120000,
+  "editedOn": 1693831600000,
   "userId": -6,
-  "postedOn": 1690900800000,
-  "editedOn": null,
   "numOfVotes": 0,
-  "commentThreadId": null
-}
-
-POST /comment-index/_doc/-13
-{
-  "id": -13,
-  "questionId": -1,
-  "description": "Možeš da dodas još detalja o implementaciji.",
-  "userId": -7,
-  "postedOn": 1690904400000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -11
-}
-
-POST /comment-index/_doc/-14
-{
-  "id": -14,
-  "questionId": -1,
-  "description": "Da, dodatni primeri bi bili korisni.",
-  "userId": -8,
-  "postedOn": 1690908000000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -11
-}
-
-POST /comment-index/_doc/-15
-{
-  "id": -15,
-  "questionId": -1,
-  "description": "Kao dodatak, možeš istražiti i alternative.",
-  "userId": -9,
-  "postedOn": 1690911600000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -12
-}
-
-POST /comment-index/_doc/-16
-{
-  "id": -16,
-  "questionId": -1,
-  "description": "Razumem tvoju tačku, ali možda bi trebali dodati još nekoliko primera.",
-  "userId": -10,
-  "postedOn": 1690915200000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -13
-}
-
-POST /comment-index/_doc/-17
-{
-  "id": -17,
-  "questionId": -1,
-  "description": "Slažem se, primeri su ključni za bolje razumevanje.",
-  "userId": -1,
-  "postedOn": 1690918800000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -13
-}
-
-POST /comment-index/_doc/-18
-{
-  "id": -18,
-  "questionId": -1,
-  "description": "Kao dodatak, možete istražiti različite pristupe za optimizaciju.",
-  "userId": -2,
-  "postedOn": 1690922400000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -15
-}
-
-POST /comment-index/_doc/-19
-{
-  "id": -19,
-  "questionId": -1,
-  "description": "Takođe, razmislite o mogućim problemima i rešenjima.",
-  "userId": -3,
-  "postedOn": 1690926000000,
-  "editedOn": null,
-  "numOfVotes": 0,
-  "commentThreadId": -15
+  "tags": ["c++", "memorija", "optimizacija"]
 }
 
 POST /comment-index/_doc/-1
@@ -1212,4 +1104,244 @@ POST /comment-index/_doc/-52
   "editedOn": null,
   "numOfVotes": 0,
   "commentThreadId": -22
+}
+
+POST /comment-index/_doc/-53
+{
+  "id": -53,
+  "questionId": -23,
+  "description": "Najbolje je imati najmanje tri čvora kako bi se osigurala visoka dostupnost i tolerancija na greške.",
+  "userId": -7,
+  "postedOn": 1692871200000,
+  "editedOn": null,
+  "numOfVotes": 2,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-54
+{
+  "id": -54,
+  "questionId": -24,
+  "description": "Korišćenje genserver procesa može značajno poboljšati performanse u određenim scenarijima.",
+  "userId": -9,
+  "postedOn": 1692957600000,
+  "editedOn": null,
+  "numOfVotes": 1,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-55
+{
+  "id": -55,
+  "questionId": -25,
+  "description": "Jedan od problema može biti razlika u sintaksi za upravljanje transakcijama, ali to se može rešiti uz pravilno planiranje.",
+  "userId": -6,
+  "postedOn": 1693044000000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-56
+{
+  "id": -56,
+  "questionId": -26,
+  "description": "Pravilno postavljanje mapping-a je ključno za efikasnu pretragu i optimizaciju performansi.",
+  "userId": -8,
+  "postedOn": 1693130400000,
+  "editedOn": 1693216800000,
+  "numOfVotes": 3,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-57
+{
+  "id": -57,
+  "questionId": -27,
+  "description": "Preporučuje se korišćenje Elastic.Clients.Elasticsearch biblioteke zbog njene fleksibilnosti i podrške za napredne funkcionalnosti.",
+  "userId": -10,
+  "postedOn": 1693303200000,
+  "editedOn": null,
+  "numOfVotes": 4,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-58
+{
+  "id": -58,
+  "questionId": -28,
+  "description": "Koristi pipeline as code za bolju kontrolu i održavanje CI/CD procesa.",
+  "userId": -9,
+  "postedOn": 1693486000000,
+  "editedOn": null,
+  "numOfVotes": 2,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-59
+{
+  "id": -59,
+  "questionId": -29,
+  "description": "Pravljenje custom tokenizera može značajno poboljšati rezultate pretrage u specifičnim slučajevima.",
+  "userId": -8,
+  "postedOn": 1693572400000,
+  "editedOn": 1693658800000,
+  "numOfVotes": 3,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-60
+{
+  "id": -60,
+  "questionId": -30,
+  "description": "Problemi sa latencijom i sinhronizacijom podataka su česti u distribuisanim sistemima.",
+  "userId": -10,
+  "postedOn": 1693658800000,
+  "editedOn": null,
+  "numOfVotes": 1,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-61
+{
+  "id": -61,
+  "questionId": -31,
+  "description": "Docker Compose je odličan alat za orkestraciju više mikroservisa u lokalnom okruženju.",
+  "userId": -7,
+  "postedOn": 1693745200000,
+  "editedOn": 1693831600000,
+  "numOfVotes": 4,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-62
+{
+  "id": -62,
+  "questionId": -32,
+  "description": "Pametni pokazivači (smart pointers) u C++ su ključni za pravilno upravljanje memorijom.",
+  "userId": -5,
+  "postedOn": 1693831600000,
+  "editedOn": null,
+  "numOfVotes": -1,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-63
+{
+  "id": -63,
+  "questionId": -28,
+  "description": "Preporučujem korišćenje Jenkinsfile za definisanje pipeline-a u kodu.",
+  "userId": -6,
+  "postedOn": 1693831600000,
+  "editedOn": 1693918000000,
+  "numOfVotes": 3,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-64
+{
+  "id": -64,
+  "questionId": -29,
+  "description": "Dodavanje filtera na osnovu jezika može značajno unaprediti pretragu u Elasticsearch-u.",
+  "userId": -7,
+  "postedOn": 1693918000000,
+  "editedOn": null,
+  "numOfVotes": 5,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-65
+{
+  "id": -65,
+  "questionId": -30,
+  "description": "Korišćenje distribuisanih zaključavanja može pomoći u rešavanju problema sa sinhronizacijom podataka.",
+  "userId": -8,
+  "postedOn": 1694004400000,
+  "editedOn": 1694090800000,
+  "numOfVotes": 2,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-66
+{
+  "id": -66,
+  "questionId": -31,
+  "description": "Možete koristiti Docker za kreiranje izolovanog okruženja za testiranje različitih verzija mikroservisa.",
+  "userId": -9,
+  "postedOn": 1688796900000,
+  "editedOn": null,
+  "numOfVotes": 1,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-67
+{
+  "id": -67,
+  "questionId": -32,
+  "description": "Za složene strukture podataka, razmislite o upotrebi `std::shared_ptr` za bolju kontrolu nad životnim vekom objekata.",
+  "userId": -10,
+  "postedOn": 1694177200000,
+  "editedOn": 1694263600000,
+  "numOfVotes": 2,
+  "commentThreadId": null
+}
+
+POST /comment-index/_doc/-68
+{
+  "id": -68,
+  "questionId": -28,
+  "description": "Slažem se, Jenkinsfile daje fleksibilnost i omogućava lakše održavanje pipeline-a.",
+  "userId": -5,
+  "postedOn": 1694263600000,
+  "editedOn": null,
+  "numOfVotes": 1,
+  "commentThreadId": -63
+}
+
+POST /comment-index/_doc/-69
+{
+  "id": -69,
+  "questionId": -29,
+  "description": "Da, posebno za aplikacije sa višejezičkim sadržajem.",
+  "userId": -6,
+  "postedOn": 1694350000000,
+  "editedOn": 1694436400000,
+  "numOfVotes": 2,
+  "commentThreadId": -64
+}
+
+POST /comment-index/_doc/-70
+{
+  "id": -70,
+  "questionId": -30,
+  "description": "Distribuisani sistemi često zahtevaju dodatno planiranje kada su u pitanju zaključavanja.",
+  "userId": -7,
+  "postedOn": 1694436400000,
+  "editedOn": null,
+  "numOfVotes": 0,
+  "commentThreadId": -65
+}
+
+POST /comment-index/_doc/-71
+{
+  "id": -71,
+  "questionId": -31,
+  "description": "Osim toga, Docker omogućava paralelno testiranje više mikroservisa bez međusobnog ometanja.",
+  "userId": -8,
+  "postedOn": 1694181120000,
+  "editedOn": 1694609200000,
+  "numOfVotes": 3,
+  "commentThreadId": -66
+}
+
+POST /comment-index/_doc/-72
+{
+  "id": -72,
+  "questionId": -32,
+  "description": "Takođe, `std::weak_ptr` može biti koristan za izbegavanje cikličnih referenci.",
+  "userId": -9,
+  "postedOn": 1694609200000,
+  "editedOn": null,
+  "numOfVotes": 1,
+  "commentThreadId": -67
 }
