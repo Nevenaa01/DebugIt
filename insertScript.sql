@@ -3,7 +3,7 @@ POST /user-index/_doc/-1
   "id": -1,
   "name": "Administrator",
   "lastName": "Administrator",
-  "email": "administrator@example.com",
+  "email": "administrator@gmail.com",
   "password": "administrator123",
   "role": 3
 }
@@ -13,7 +13,7 @@ POST /user-index/_doc/-2
   "id": -2,
   "name": "Asistent1",
   "lastName": "Asistent",
-  "email": "asistent1@example.com",
+  "email": "asistent1@gmail.com",
   "password": "lozinka1",
   "role": 1
 }
@@ -23,7 +23,7 @@ POST /user-index/_doc/-3
   "id": -3,
   "name": "Asistent2",
   "lastName": "Asistent",
-  "email": "asistent2@example.com",
+  "email": "asistent2@gmail.com",
   "password": "lozinka2",
   "role": 1
 }
@@ -33,7 +33,7 @@ POST /user-index/_doc/-4
   "id": -4,
   "name": "Profesor",
   "lastName": "Profesor",
-  "email": "profesor@example.com",
+  "email": "profesor@gmail.com",
   "password": "profesor123",
   "role": 2
 }
@@ -41,9 +41,9 @@ POST /user-index/_doc/-4
 POST /user-index/_doc/-5
 {
   "id": -5,
-  "name": "Jovan",
-  "lastName": "Smit",
-  "email": "jovan.smit@example.com",
+  "name": "Marko",
+  "lastName": "Popović",
+  "email": "marko.popovic@gmail.com",
   "password": "lozinka3",
   "role": 0
 }
@@ -51,9 +51,9 @@ POST /user-index/_doc/-5
 POST /user-index/_doc/-6
 {
   "id": -6,
-  "name": "Emilija",
-  "lastName": "Džonson",
-  "email": "emilija.džonson@example.com",
+  "name": "Nemanja",
+  "lastName": "Ristić",
+  "email": "nemanja.ristic@gmail.com",
   "password": "lozinka4",
   "role": 0
 }
@@ -61,9 +61,9 @@ POST /user-index/_doc/-6
 POST /user-index/_doc/-7
 {
   "id": -7,
-  "name": "Mihailo",
-  "lastName": "Vijams",
-  "email": "mihailo.vijams@example.com",
+  "name": "Bojan",
+  "lastName": "Lukić",
+  "email": "bojan.lukic@gmail.com",
   "password": "lozinka5",
   "role": 0
 }
@@ -71,9 +71,9 @@ POST /user-index/_doc/-7
 POST /user-index/_doc/-8
 {
   "id": -8,
-  "name": "Sara",
-  "lastName": "Braun",
-  "email": "sara.braun@example.com",
+  "name": "Anđela",
+  "lastName": "Pavlović",
+  "email": "andjela.pavlovic@gmail.com",
   "password": "lozinka6",
   "role": 0
 }
@@ -81,9 +81,9 @@ POST /user-index/_doc/-8
 POST /user-index/_doc/-9
 {
   "id": -9,
-  "name": "David",
-  "lastName": "Džons",
-  "email": "david.džons@example.com",
+  "name": "Ivana",
+  "lastName": "Vasić",
+  "email": "ivana.vasic@gmail.com",
   "password": "lozinka7",
   "role": 0
 }
@@ -91,9 +91,9 @@ POST /user-index/_doc/-9
 POST /user-index/_doc/-10
 {
   "id": -10,
-  "name": "Olivia",
-  "lastName": "Miler",
-  "email": "olivia.miler@example.com",
+  "name": "Teodora",
+  "lastName": "Milosavljević",
+  "email": "teodora.milosavljevic@gmail.com",
   "password": "lozinka8",
   "role": 0
 }
